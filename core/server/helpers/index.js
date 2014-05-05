@@ -715,6 +715,25 @@ coreHelpers.update_notification = function (options) {
     });
 };
 
+var twitter_template_str =  '<meta name="twitter:card" content="{{twitter_card.card}}">\n' +
+                        '<meta name="twitter:site" content="{{twitter_card.site}}">\n' +
+                        '<meta name="twitter:creator" content="{{twitter_card.creator}}">\n' +
+                        '<meta name="twitter:title" content="{{twitter_card.title}}">\n' +
+                        '<meta name="twitter:description" content="{{twitter_card.description}}">\n';
+//                            '<meta name="twitter:image:src" content="{{twitter_card.image}}">';
+var twitter_template = hbs.compile(twitter_template_str);
+
+// Twitter cards meta tag helper
+coreHelpers.twitter_card_meta_block = function(options) {
+    var twitter_card = {
+        card: 'simple',
+        site: this.meta_title,
+        creator: '@alephbas',
+        description: summary
+    };
+
+
+};
 // Register an async handlebars helper for a given handlebars instance
 function registerAsyncHelper(hbs, name, fn) {
     hbs.registerAsyncHelper(name, function (options, cb) {
