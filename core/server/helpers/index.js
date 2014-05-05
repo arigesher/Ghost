@@ -731,7 +731,9 @@ coreHelpers.twitter_card_meta_block = function(options) {
         creator: '@alephbas',
         description: summary
     };
-
+    console.log("twitter_card: " + this);
+    return "foo!";
+//    return twitter_template(twitter_card);
 
 };
 // Register an async handlebars helper for a given handlebars instance
@@ -801,6 +803,8 @@ registerHelpers = function (adminHbs, assetHash) {
     registerThemeHelper('pagination', coreHelpers.pagination);
 
     registerThemeHelper('tags', coreHelpers.tags);
+
+    registerThemeHelper('twitter_card', coreHelpers.twitter_card);
 
     registerAsyncThemeHelper('body_class', coreHelpers.body_class);
 
